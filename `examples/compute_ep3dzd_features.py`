@@ -1,0 +1,35 @@
+import argparse
+import numpy as np
+import pandas as pd
+from src.pairwise_extraction import extract_pairwise_pdbs
+from src.zernike_pipeline import compute_feature_vector
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset_csv", required=True)
+    parser.add_argument("--data_folder", required=True)
+    parser.add_argument("--output", required=True)
+    parser.add_argument("--num_complexes", type=int, default=10)
+    args = parser.parse_args()
+
+    df = pd.read_csv(args.dataset_csv)
+    pdbids = df["PDBID"].tolist()[:args.num_complexes]
+
+    features = {}
+
+    for pdbid in pdbids:
+        print(f"Processing {pdbid}...")
+
+        pair_dir = extract_pairwise_pdbs(args.data_folder, pdbid)
+        feat = compute_feature_vector(pair_dir)
+
+        if feat is not None:
+            features[pdbid] = feat
+
+    np.savez(args.output, features_dict=features)
+    print("Saved features!")
+
+
+if __name__ == "__main__":
+    main()
