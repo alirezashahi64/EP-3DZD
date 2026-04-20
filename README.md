@@ -13,30 +13,7 @@ The framework enables systematic comparison between:
 
 ---
 
-## 📂 Repository Structure
 
-```
-EP-3DZD/
-│
-├── examples/                          # Example pipelines
-│   └── compute_ep3dzd_features.py
-│
-├── src/                               # Core implementation
-│   ├── pairwise_extraction.py         # Element-pair extraction
-│   └── zernike_pipeline.py            # Zernike feature computation
-│
-├── run_regression.py                  # Binding affinity prediction
-├── run_similarity_classification.py   # Binding similarity (AUC)
-│
-├── data/                              # (Optional) dataset placeholders
-├── results/                           # Output directory
-│
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
----
 
 ## ⚙️ Method Overview
 
