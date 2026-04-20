@@ -110,17 +110,6 @@ python run_similarity_classification.py \
     --labels data/PDBbind_labels.csv
 ```
 
-### Pair Definition
-
-* Similar: |ΔpK| < 1.5 → label = 1
-* Dissimilar: 1.5 ≤ |ΔpK| < 3.0 → label = 0
-
-### Evaluation
-
-* ROC Curve
-* AUC Score
-
----
 
 ## 📊 Dataset
 
@@ -179,26 +168,6 @@ You must:
 
 ---
 
-## 🔍 Comparison with EIM
-
-| Property     | EP-3DZD            | EIM                |
-| ------------ | ------------------ | ------------------ |
-| Feature Type | Shape-based        | Interaction-based  |
-| Invariance   | Rotation-invariant | Not inherent       |
-| Complexity   | High               | Moderate           |
-| Performance  | Moderate           | Typically stronger |
-
-Combining both often yields improved performance.
-
----
-
-## 🔧 Future Work
-
-* Full robust pipeline integration (checkpoint + resume)
-* Group-aware cross-validation (avoid data leakage)
-* Feature fusion strategies
-* Deep learning models on descriptors
-* GPU acceleration
 
 ---
 
